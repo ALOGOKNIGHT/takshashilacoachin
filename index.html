@@ -2399,8 +2399,33 @@
     @media (max-width: 768px) {
       .nav-links, .nav-cta-group { display: none; }
       .hamburger { display: flex; }
-      .hero-content { grid-template-columns: 1fr; gap: 40px; padding: 80px 20px; }
+      .hero {
+        min-height: 72vh !important; /* Optimizes mobile height to significantly reduce landscape video zoom */
+      }
+      .hero-video-container {
+        transform: scale(1.04);
+        animation: cinematicZoomFadeMobile 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+      }
+      .hero-video {
+        object-position: center 30%; /* Focuses on the premium upper-middle portion of the building */
+      }
+      .hero-overlay {
+        /* Slightly deeper gradient on mobile for maximum text readability and cinematic ambient contrast */
+        background: linear-gradient(135deg, rgba(8, 15, 24, 0.96) 0%, rgba(13, 27, 42, 0.88) 50%, rgba(8, 15, 24, 0.97) 100%);
+      }
+      .hero-content { grid-template-columns: 1fr; gap: 40px; padding: 110px 20px 60px; }
       .hero-right { display: none; }
+
+      @keyframes cinematicZoomFadeMobile {
+        0% {
+          opacity: 0;
+          transform: scale(1.04);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
       .stats-bar-inner { grid-template-columns: repeat(2, 1fr); display: grid; }
       .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); }
       .stat-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.2); }
