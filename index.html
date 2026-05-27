@@ -654,63 +654,112 @@
         0 25px 70px rgba(244, 124, 43, 0.18),
         inset 0 1px 1px rgba(255, 255, 255, 0.12);
     }
-    .hero-stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    .hero-stat {
+    /* Hero Feature Panel Layout */
+    .hero-main-stat {
       text-align: center;
-      padding: 20px 16px;
-      background: rgba(255,255,255,0.05);
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: all var(--transition);
+      padding-bottom: 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 22px;
     }
-    .hero-stat:hover {
-      background: rgba(244,124,43,0.15);
-      border-color: rgba(244,124,43,0.3);
-      transform: translateY(-3px);
-    }
-    .hero-stat-num {
+    .hero-main-stat-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(244, 124, 43, 0.12);
+      border: 1px solid rgba(244, 124, 43, 0.3);
+      color: var(--accent-light);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.65rem;
+      font-weight: 800;
       font-family: var(--font-heading);
-      font-size: 2.2rem;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .hero-main-stat .hero-stat-num {
+      font-family: var(--font-heading);
+      font-size: 3.4rem;
       font-weight: 900;
       color: var(--accent);
       line-height: 1;
       display: block;
     }
-    .hero-stat-label {
-      color: rgba(255,255,255,0.7);
-      font-size: 0.78rem;
-      font-weight: 500;
+    .hero-main-stat .hero-stat-label {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.85rem;
+      font-weight: 600;
       margin-top: 6px;
       display: block;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-family: var(--font-heading);
     }
-    .hero-stat:only-child {
-      grid-column: span 2;
-      padding: 30px 24px;
-      max-width: 320px;
-      margin: 0 auto;
-      width: 100%;
+    .hero-features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 22px 0;
     }
-    .hero-stat:only-child .hero-stat-num {
-      font-size: 3.5rem;
+    .hero-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-md);
+      transition: all var(--transition);
     }
-    .hero-stat:only-child .hero-stat-label {
-      font-size: 0.95rem;
-      margin-top: 8px;
+    .hero-feature-item:hover {
+      background: rgba(244, 124, 43, 0.08);
+      border-color: rgba(244, 124, 43, 0.25);
+      transform: translateX(6px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .hfi-icon-wrap {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(244, 124, 43, 0.12);
+      border: 1px solid rgba(244, 124, 43, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--accent);
+      font-size: 1.1rem;
+      transition: all var(--transition);
+    }
+    .hero-feature-item:hover .hfi-icon-wrap {
+      background: var(--accent);
+      color: white;
+      transform: scale(1.1) rotate(5deg);
+    }
+    .hfi-text h4 {
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 2px;
+    }
+    .hfi-text p {
+      font-size: 0.76rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.4;
+      margin: 0;
     }
     .hero-note {
-      margin-top: 20px;
+      margin-top: 22px;
       padding: 14px;
-      background: rgba(244,124,43,0.12);
-      border: 1px solid rgba(244,124,43,0.25);
+      background: rgba(244, 124, 43, 0.12);
+      border: 1px solid rgba(244, 124, 43, 0.25);
       border-radius: var(--radius-sm);
-      color: rgba(255,255,255,0.85);
+      color: rgba(255, 255, 255, 0.9);
       font-size: 0.8rem;
       text-align: center;
       font-weight: 500;
+      line-height: 1.45;
     }
     .hero-note strong { color: var(--accent-light); }
 
@@ -2599,12 +2648,41 @@
       </div>
       <div class="hero-right">
         <div class="hero-stats-card">
-          <div class="hero-stats-grid">
-            <div class="hero-stat">
+          <!-- Main Stat on Top -->
+          <div class="hero-main-stat">
+            <div class="hero-main-stat-badge"><i class="fas fa-medal"></i> TRUSTED LEADERS</div>
+            <div class="hero-main-stat-content">
               <span class="hero-stat-num" data-target="20">0</span>
-              <span class="hero-stat-label">Years Excellence</span>
+              <span class="hero-stat-label">Years of Excellence</span>
             </div>
           </div>
+          
+          <!-- Feature Items Below -->
+          <div class="hero-features-list">
+            <div class="hero-feature-item">
+              <div class="hfi-icon-wrap"><i class="fas fa-graduation-cap"></i></div>
+              <div class="hfi-text">
+                <h4>Expert & Trained Faculty</h4>
+                <p>Learn from veteran offline coaches with proven rank-building experience.</p>
+              </div>
+            </div>
+            <div class="hero-feature-item">
+              <div class="hfi-icon-wrap"><i class="fas fa-book-open"></i></div>
+              <div class="hfi-text">
+                <h4>Study Material & Test Series</h4>
+                <p>Premium physical study modules and comprehensive offline weekly test series.</p>
+              </div>
+            </div>
+            <div class="hero-feature-item">
+              <div class="hfi-icon-wrap"><i class="fas fa-handshake"></i></div>
+              <div class="hfi-text">
+                <h4>Personal Mentorship</h4>
+                <p>1-on-1 personalized academic guidance and daily dedicated doubt sessions.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Existing Offline Highlight -->
           <div class="hero-note">
             <strong><i class="fas fa-school" style="font-size:0.9rem;"></i> 100% Offline Classroom Coaching</strong><br>
             All classes at our Jodhpur center only. No online/virtual classes.
