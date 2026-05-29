@@ -1766,99 +1766,147 @@
     }
 
     /* =========================================================
-       BATCH SCHEDULE PAGE
+       BATCH SCHEDULE PAGE — Coming Soon Upgrade
     ========================================================= */
-    .schedule-alert {
-      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-      color: white;
-      border-radius: var(--radius-md);
-      padding: 20px 28px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 36px;
-    }
-    .schedule-alert .alert-icon { font-size: 2rem; }
-    .schedule-alert .alert-text strong {
-      font-family: var(--font-heading);
-      font-weight: 800;
-      font-size: 1rem;
-      display: block;
-    }
-    .schedule-alert .alert-text p { font-size: 0.85rem; opacity: 0.9; margin-top: 4px; }
-
-    .schedule-tabs {
-      display: flex;
-      gap: 4px;
-      border-bottom: 2px solid var(--gray-200);
-      margin-bottom: 28px;
-    }
-    .schedule-tab {
-      padding: 12px 28px;
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 0.88rem;
-      color: var(--gray-600);
-      cursor: pointer;
-      border-bottom: 3px solid transparent;
-      margin-bottom: -2px;
-      transition: all var(--transition-fast);
-    }
-    .schedule-tab.active {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
-    }
-
-    .schedule-table-wrap {
-      background: white;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      margin-bottom: 32px;
-    }
-    .schedule-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .schedule-table thead th {
-      background: var(--primary);
-      color: white;
-      padding: 14px 18px;
-      text-align: left;
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 0.8rem;
-      letter-spacing: 0.5px;
-    }
-    .schedule-table tbody td {
-      padding: 16px 18px;
-      border-bottom: 1px solid var(--gray-200);
-      font-size: 0.88rem;
-      color: var(--gray-800);
-      vertical-align: middle;
-    }
-    .schedule-table tbody tr:last-child td { border-bottom: none; }
-    .schedule-table tbody tr:hover { background: var(--off-white); }
-    .seats-badge {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      font-family: var(--font-heading);
-    }
-    .seats-filling {
-      background: #fff3cd;
-      color: #856404;
-      animation: pulse 2s infinite;
-    }
-    .seats-available { background: #d4edda; color: #155724; }
-    .seats-full { background: #f8d7da; color: #721c24; }
-
-    .schedule-download {
+    .coming-soon-container {
       display: flex;
       justify-content: center;
-      margin-top: 24px;
+      align-items: center;
+      padding: 40px 0;
+    }
+    .coming-soon-card {
+      background: white;
+      border-radius: var(--radius-xl);
+      padding: 50px 40px;
+      max-width: 760px;
+      width: 100%;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--gray-200);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .coming-soon-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      border-color: rgba(244,124,43,0.3);
+    }
+    .cs-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(244,124,43,0.1);
+      border: 1px solid rgba(244,124,43,0.3);
+      color: var(--accent);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      margin-bottom: 24px;
+      font-family: var(--font-heading);
+    }
+    .cs-title {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .cs-subtitle {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+    .cs-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gray-300), transparent);
+      margin: 24px 0;
+      width: 100%;
+    }
+    .cs-description {
+      color: var(--gray-600);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 30px;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cs-highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .cs-highlight-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 16px;
+      background: var(--off-white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--gray-200);
+      transition: all var(--transition);
+    }
+    .cs-highlight-item:hover {
+      background: white;
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+    .cs-highlight-item span {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .csh-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(13,27,42,0.05);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: all var(--transition);
+    }
+    .cs-highlight-item:hover .csh-icon {
+      background: var(--accent);
+      color: white;
+    }
+    .cs-notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #fff8f3;
+      border: 1px solid rgba(244,124,43,0.3);
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      text-align: left;
+      font-size: 0.88rem;
+      color: var(--gray-700);
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+    .cs-notice i {
+      color: var(--accent);
+      font-size: 1.15rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .cs-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     /* =========================================================
@@ -2509,8 +2557,7 @@
       .toppers-grid { grid-template-columns: 1fr; }
       .results-stats { grid-template-columns: 1fr; }
       .batch-options { grid-template-columns: 1fr; }
-      .schedule-table { font-size: 0.75rem; }
-      .schedule-table thead th, .schedule-table tbody td { padding: 10px 10px; }
+      /* Removed schedule-table overrides as schedules are replaced by Coming Soon card */
     }
 
     /* =========================================================
@@ -3489,196 +3536,50 @@
 
   <div class="section" style="background:var(--off-white)">
     <div class="container">
-      <!-- Alert Banner -->
-      <div class="schedule-alert reveal">
-        <div class="alert-icon"><i class="fas fa-bell" style="font-size:2rem;"></i></div>
-        <div class="alert-text">
-          <strong>New Batches Starting Soon!</strong>
-          <p>JEE 2026 Batch starts June 15 | NEET 2026 Batch starts June 20 | Foundation Batch starts July 1. Seats are limited — enroll early to secure your spot.</p>
+      <div class="coming-soon-container reveal">
+        <div class="coming-soon-card">
+          <div class="cs-badge"><i class="fas fa-clock"></i> COMING SOON</div>
+          <h2 class="cs-title">Academic Session 2026 Batches</h2>
+          <p class="cs-subtitle">Offline Classroom Batch Schedules & Seat Allocations</p>
+          
+          <div class="cs-divider"></div>
+          
+          <p class="cs-description">
+            We are currently finalizing the offline classroom batch slots, timing grids, and expert faculty allocations for the upcoming academic session to deliver the most optimized personal learning experience.
+          </p>
+          
+          <div class="cs-highlights">
+            <div class="cs-highlight-item">
+              <span class="csh-icon"><i class="fas fa-atom"></i></span>
+              <span>JEE Main & Advanced</span>
+            </div>
+            <div class="cs-highlight-item">
+              <span class="csh-icon"><i class="fas fa-dna"></i></span>
+              <span>NEET UG (Medical)</span>
+            </div>
+            <div class="cs-highlight-item">
+              <span class="csh-icon"><i class="fas fa-ruler-combined"></i></span>
+              <span>Class 8, 9 & 10 Foundation</span>
+            </div>
+          </div>
+          
+          <div class="cs-divider"></div>
+
+          <div class="cs-notice">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span><strong>Strict Intake Limit:</strong> To maintain personal attention, offline batches are strictly limited to 30-35 students only. Early registration is recommended.</span>
+          </div>
+
+          <div class="cs-actions">
+            <button class="btn btn-primary" onclick="navigateTo('contact')"><i class="fas fa-envelope"></i> Request Early Admission Callback</button>
+            <button class="btn btn-outline-dark" onclick="window.open('https://wa.me/919829764378?text=Hello%20Takshashila%2C%20I%20want%20to%20know%20more%20about%20the%20upcoming%20batch%20schedules.', '_blank')">
+              <i class="fab fa-whatsapp" style="color:#25D366;"></i> Inquire on WhatsApp
+            </button>
+          </div>
         </div>
-      </div>
-
-      <!-- Schedule Tabs -->
-      <div class="schedule-tabs">
-        <div class="schedule-tab active" onclick="showSchedule('jee', this)"><i class="fas fa-atom" style="font-size:0.85rem;margin-right:6px;"></i> JEE Schedule</div>
-        <div class="schedule-tab" onclick="showSchedule('neet', this)"><i class="fas fa-dna" style="font-size:0.85rem;margin-right:6px;"></i> NEET Schedule</div>
-        <div class="schedule-tab" onclick="showSchedule('foundation', this)"><i class="fas fa-ruler-combined" style="font-size:0.85rem;margin-right:6px;"></i> Foundation Schedule</div>
-      </div>
-
-      <!-- JEE Schedule Table -->
-      <div id="sched-jee" class="schedule-table-wrap">
-        <table class="schedule-table">
-          <thead>
-            <tr>
-              <th>Batch Name</th>
-              <th>Class</th>
-              <th>Timing</th>
-              <th>Days</th>
-              <th>Start Date</th>
-              <th>Faculty</th>
-              <th>Seats Left</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>JEE-A (2-Year)</strong><br><small>2026 Batch</small></td>
-              <td>Class 11</td>
-              <td>7:00 AM – 11:00 AM</td>
-              <td>Mon – Sat</td>
-              <td>June 15, 2025</td>
-              <td>Dr. Ramesh Jain & Team</td>
-              <td><span class="seats-badge seats-filling"><i class="fas fa-exclamation-triangle" style="font-size:0.85rem;margin-right:4px;"></i> 8 Left!</span></td>
-              <td><button class="btn btn-primary btn-sm" onclick="navigateTo('contact')">Enroll</button></td>
-            </tr>
-            <tr>
-              <td><strong>JEE-B (2-Year)</strong><br><small>2026 Batch</small></td>
-              <td>Class 11</td>
-              <td>3:00 PM – 7:00 PM</td>
-              <td>Mon – Sat</td>
-              <td>June 15, 2025</td>
-              <td>Prof. Suresh Kumar & Team</td>
-              <td><span class="seats-badge seats-available"><i class="fas fa-check" style="font-size:0.85rem;margin-right:4px;"></i> 22 Left</span></td>
-              <td><button class="btn btn-primary btn-sm" onclick="navigateTo('contact')">Enroll</button></td>
-            </tr>
-            <tr>
-              <td><strong>JEE-C (1-Year)</strong><br><small>2026 Dropper Batch</small></td>
-              <td>Class 12 / Dropper</td>
-              <td>7:00 AM – 1:00 PM</td>
-              <td>Mon – Sat</td>
-              <td>June 20, 2025</td>
-              <td>Dr. Vikram Singh & Team</td>
-              <td><span class="seats-badge seats-filling"><i class="fas fa-exclamation-triangle" style="font-size:0.85rem;margin-right:4px;"></i> 5 Left!</span></td>
-              <td><button class="btn btn-primary btn-sm" onclick="navigateTo('contact')">Enroll</button></td>
-            </tr>
-            <tr>
-              <td><strong>JEE-D (1-Year)</strong><br><small>Class 12 Regular</small></td>
-              <td>Class 12</td>
-              <td>3:00 PM – 7:00 PM</td>
-              <td>Mon – Sat</td>
-              <td>July 1, 2025</td>
-              <td>Prof. Anita Sharma & Team</td>
-              <td><span class="seats-badge seats-available"><i class="fas fa-check" style="font-size:0.85rem;margin-right:4px;"></i> 28 Left</span></td>
-              <td><button class="btn btn-primary btn-sm" onclick="navigateTo('contact')">Enroll</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- NEET Schedule Table -->
-      <div id="sched-neet" class="schedule-table-wrap" style="display:none;">
-        <table class="schedule-table">
-          <thead>
-            <tr>
-              <th>Batch Name</th>
-              <th>Class</th>
-              <th>Timing</th>
-              <th>Days</th>
-              <th>Start Date</th>
-              <th>Faculty</th>
-              <th>Seats Left</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>NEET-A (2-Year)</strong><br><small>2026 Batch</small></td>
-              <td>Class 11</td>
-              <td>7:00 AM – 11:00 AM</td>
-              <td>Mon – Sat</td>
-              <td>June 20, 2025</td>
-              <td>Dr. Priya Mehta & Team</td>
-              <td><span class="seats-badge seats-filling"><i class="fas fa-exclamation-triangle" style="font-size:0.85rem;margin-right:4px;"></i> 12 Left!</span></td>
-              <td><button class="btn btn-primary btn-sm" onclick="navigateTo('contact')">Enroll</button></td>
-            </tr>
-            <tr>
-              <td><strong>NEET-B (2-Year)</strong><br><small>2026 Batch</small></td>
-              <td>Class 11</td>
-              <td>3:00 PM – 7:00 PM</td>
-              <td>Mon – Sat</td>
-              <td>June 20, 2025</td>
-              <td>Dr. Sanjay Rao & Team</td>
-              <td><span class="seats-badge seats-available"><i class="fas fa-check" style="font-size:0.85rem;margin-right:4px;"></i> 25 Left</span></td>
-              <td><button class="btn btn-primary btn-sm" onclick="navigateTo('contact')">Enroll</button></td>
-            </tr>
-            <tr>
-              <td><strong>NEET-C (1-Year)</strong><br><small>Dropper Batch</small></td>
-              <td>Class 12 / Dropper</td>
-              <td>7:00 AM – 12:00 PM</td>
-              <td>Mon – Sat</td>
-              <td>June 25, 2025</td>
-              <td>Dr. Kavita Joshi & Team</td>
-              <td><span class="seats-badge seats-filling"><i class="fas fa-exclamation-triangle" style="font-size:0.85rem;margin-right:4px;"></i> 6 Left!</span></td>
-              <td><button class="btn btn-primary btn-sm" onclick="navigateTo('contact')">Enroll</button></td>
-            </tr>
-            <tr>
-              <td><strong>NEET-D (1-Year)</strong><br><small>Class 12 Regular</small></td>
-              <td>Class 12</td>
-              <td>3:00 PM – 7:00 PM</td>
-              <td>Mon – Sat</td>
-              <td>July 5, 2025</td>
-              <td>Dr. Ravi Agarwal & Team</td>
-              <td><span class="seats-badge seats-available"><i class="fas fa-check" style="font-size:0.85rem;margin-right:4px;"></i> 30 Left</span></td>
-              <td><button class="btn btn-primary btn-sm" onclick="navigateTo('contact')">Enroll</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Foundation Schedule Table -->
-      <div id="sched-foundation" class="schedule-table-wrap" style="display:none;">
-        <table class="schedule-table">
-          <thead>
-            <tr>
-              <th>Batch Name</th>
-              <th>Class</th>
-              <th>Timing</th>
-              <th>Days</th>
-              <th>Start Date</th>
-              <th>Faculty</th>
-              <th>Seats Left</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>FOUND-8</strong><br><small>Class 8 Batch</small></td>
-              <td>Class 8</td>
-              <td>4:00 PM – 6:30 PM</td>
-              <td>Mon – Fri</td>
-              <td>July 1, 2025</td>
-              <td>Mr. Deepak Sharma & Team</td>
-              <td><span class="seats-badge seats-available"><i class="fas fa-check" style="font-size:0.85rem;margin-right:4px;"></i> 28 Left</span></td>
-              <td><button class="btn btn-primary btn-sm" onclick="navigateTo('contact')">Enroll</button></td>
-            </tr>
-            <tr>
-              <td><strong>FOUND-9</strong><br><small>Class 9 Batch</small></td>
-              <td>Class 9</td>
-              <td>4:00 PM – 7:00 PM</td>
-              <td>Mon – Fri</td>
-              <td>July 1, 2025</td>
-              <td>Ms. Anjali Verma & Team</td>
-              <td><span class="seats-badge seats-filling"><i class="fas fa-exclamation-triangle" style="font-size:0.85rem;margin-right:4px;"></i> 10 Left!</span></td>
-              <td><button class="btn btn-primary btn-sm" onclick="navigateTo('contact')">Enroll</button></td>
-            </tr>
-            <tr>
-              <td><strong>FOUND-10</strong><br><small>Class 10 Batch</small></td>
-              <td>Class 10</td>
-              <td>4:00 PM – 7:30 PM</td>
-              <td>Mon – Sat</td>
-              <td>June 25, 2025</td>
-              <td>Mr. Anil Gupta & Team</td>
-              <td><span class="seats-badge seats-filling"><i class="fas fa-exclamation-triangle" style="font-size:0.85rem;margin-right:4px;"></i> 7 Left!</span></td>
-              <td><button class="btn btn-primary btn-sm" onclick="navigateTo('contact')">Enroll</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Download & Note -->
+      </div> 
       <div class="schedule-download">
         <div style="text-align:center">
-          <button class="btn btn-dark" onclick="alert('PDF schedule will be emailed to you. Please call 9829764378 to request your copy.')"><i class="fas fa-file-pdf" style="font-size:0.9rem;"></i> Download Full Schedule PDF</button>
           <p style="font-size:0.8rem; color:var(--gray-600); margin-top:12px;">Or call <strong>9829764378</strong> for the most up-to-date schedule and seat availability.</p>
         </div>
       </div>
